@@ -9,31 +9,33 @@ import { DataService } from 'src/app/service/data.service';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
+
 export class EmployeesComponent implements OnInit {
   employees: any;
   employee = new Employee;
-  constructor(private dataservice:DataService) { 
-
+  constructor(private dataservice: DataService) {
   }
 
   ngOnInit(): void {
     this.getEmployeesData();
   }
 
-  getEmployeesData(){
-     this.dataservice.getDate().subscribe(res =>  {
-      this.employees = res; 
-     }
-      
-      );
+  getEmployeesData() {
+    this.dataservice.getDate().subscribe(res => {
+      this.employees = res;
+    });
   }
 
-  insertData(){
-    this.dataservice.insertData(this.employee).subscribe(res=>{
-    this.getEmployeesData()
-      
+  insertData() {
+    this.dataservice.insertData(this.employee).subscribe(res => {
+      this.getEmployeesData()
     })
-    
+  }
+
+  deleteEmployee(id: any) {
+    this.dataservice.deleteData(id).subscribe(res=>{
+      this.getEmployeesData();
+    });
   }
 
 }

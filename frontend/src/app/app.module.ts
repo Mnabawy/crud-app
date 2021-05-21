@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 
 const  appRoutes: Routes = [
   {path:'',component:EmployeesComponent}
@@ -18,7 +19,8 @@ const  appRoutes: Routes = [
   declarations: [
     AppComponent,
     EmployeesComponent,
-    NavbarComponent
+    NavbarComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,
