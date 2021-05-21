@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 
 const  appRoutes: Routes = [
-  {path:'',component:EmployeesComponent}
+  {path:'',component:EmployeesComponent},
+  {path:'edit/:id', component:EmployeeEditComponent}
 ];
 
 @NgModule({
