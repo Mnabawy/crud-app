@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from 'src/app/employee';
 import { DataService } from 'src/app/service/data.service';
 
 
@@ -9,8 +10,8 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-
   employees: any;
+  employee = new Employee;
   constructor(private dataservice:DataService) { 
 
   }
@@ -25,6 +26,14 @@ export class EmployeesComponent implements OnInit {
      }
       
       );
+  }
+
+  insertData(){
+    this.dataservice.insertData(this.employee).subscribe(res=>{
+    this.getEmployeesData()
+      
+    })
+    
   }
 
 }
